@@ -75,7 +75,7 @@ class ChatHandler implements URLHandler {
           String analysis = "";
           index += 1;
           int[] codePoints = new int[0];
-          if (line.contains(shouldBeUser[1]))
+          if (line.contains(shouldBeUser[1])){
             codePoints = line.codePoints().toArray();
             int characterIndex = 0;
             while (characterIndex < codePoints.length) {
@@ -84,10 +84,10 @@ class ChatHandler implements URLHandler {
                 numberOfExclamationMarks += 1;
               }
               if (new String(Character.toChars(character)).equals("😂")) {
-                analysis = " This message has a LOL vibe.";
+                analysis += " This message has a LOL vibe.";
               }
               if (new String(Character.toChars(character)).equals("🥹")) {
-                analysis = " This message has a awwww vibe.";
+                analysis += " This message has a awwww vibe.";
               }
               characterIndex += 1;
             }
@@ -98,7 +98,7 @@ class ChatHandler implements URLHandler {
           }
         }
       
-      return matchingMessages;
+      return matchingMessages;}
     }
     return "404 Not Found";
   }
